@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="District Design Group : architecte à Bamako. Plans de maison, conception moderne, suivi de chantier. Demandez votre devis.">
+<title>District Design Group</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Concept: une planche d'architecte. Papier calque, trait d'encre bleu nuit, cotes et échelle comme éléments de mise en page. */
+:root {
+  --bg: #f3f5f7;
+  --surface: #ffffff;
+  --fg: #14213a;
+  --muted: #55627a;
+  --line: #c9d1dc;
+  --accent: #d9831f;
+  --accent-fg: #14213a;
+  --ink: #14213a;
+  --display: "Bricolage Grotesque", "Arial Narrow", Arial, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1a2e; --surface: #16233b; --fg: #e8edf5; --muted: #9aa8c0;
+    --line: #2b3b58; --accent: #f0a04b; --accent-fg: #0f1a2e; --ink: #e8edf5;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1a2e; --surface: #16233b; --fg: #e8edf5; --muted: #9aa8c0;
+  --line: #2b3b58; --accent: #f0a04b; --accent-fg: #0f1a2e; --ink: #e8edf5;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6;
+  padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 980px; margin: 0 auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.08; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.2rem, 7vw, 4rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.6rem, 4.5vw, 2.3rem); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+.label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+header.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 18px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.brand { font-family: var(--display); font-weight: 800; font-size: 1.1rem; letter-spacing: 0.02em; }
+.brand span { color: var(--accent); }
+nav { display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.92rem; }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--fg); }
+
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px; align-items: center; padding-block: 48px 56px; }
+.hero > * { min-width: 0; }
+.hero p.lead { font-size: 1.12rem; color: var(--muted); max-width: 46ch; margin: 18px 0 26px; }
+.btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 13px 22px; font-weight: 500; text-decoration: none; border: 2px solid var(--ink); font-family: var(--body); font-size: 1rem; cursor: pointer; background: transparent; color: var(--fg); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+.btn:hover { transform: translateY(-1px); }
+.plan { width: 100%; height: auto; display: block; }
+.plan .w { stroke: var(--ink); fill: none; stroke-width: 3; }
+.plan .t { stroke: var(--muted); fill: none; stroke-width: 1; }
+.plan .d { stroke: var(--accent); fill: none; stroke-width: 1.5; }
+.plan text { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.plan text.r { fill: var(--fg); font-size: 12px; }
+.plan text.dim { fill: var(--accent); }
+
+section { padding-block: 52px; border-top: 1px solid var(--line); }
+.sec-head { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+.services { display: grid; gap: 0; }
+.service { display: grid; grid-template-columns: 220px 1fr; gap: 8px 32px; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.service:first-child { border-top: 1px solid var(--line); }
+.service p { margin: 0; color: var(--muted); max-width: 58ch; }
+
+.works { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.work { display: flex; flex-direction: column; gap: 10px; padding: 20px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; min-width: 0; }
+.work:hover { border-color: var(--accent); }
+.work .date { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+.work strong { font-family: var(--display); font-size: 1.15rem; line-height: 1.2; }
+.work .go { margin-top: auto; color: var(--accent); font-weight: 500; font-size: 0.92rem; }
+
+.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: s; }
+.steps li { counter-increment: s; border-top: 3px solid var(--ink); padding-top: 14px; min-width: 0; }
+.steps li::before { content: "Étape " counter(s); font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 6px; }
+.steps h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.steps p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.quote-box { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.quote-box > * { min-width: 0; }
+form { display: grid; gap: 14px; background: var(--surface); border: 1px solid var(--line); padding: 22px; }
+.field { display: grid; gap: 6px; }
+label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+input, select, textarea { font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); padding: 11px 12px; width: 100%; border-radius: 0; }
+textarea { min-height: 90px; resize: vertical; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.out { display: none; gap: 12px; margin-top: 4px; }
+.out.show { display: grid; }
+.out pre { white-space: pre-wrap; word-break: break-word; margin: 0; padding: 14px; background: var(--bg); border: 1px dashed var(--accent); font-family: var(--mono); font-size: 0.85rem; }
+.note { font-size: 0.88rem; color: var(--muted); }
+.contact-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
+.contact-list li { display: grid; gap: 2px; }
+.contact-list [hidden] { display: none !important; }
+
+footer { border-top: 1px solid var(--line); padding-block: 26px 36px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 0.88rem; color: var(--muted); }
+
+@media (max-width: 760px) {
+  .hero, .quote-box, .works { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .service { grid-template-columns: 1fr; }
+  .hero { padding-block: 32px 40px; }
+}
+@media (max-width: 420px) { .steps, .row2 { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
+</style>
+
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">DISTRICT <span>DESIGN</span> GROUP</div>
+    <nav aria-label="Navigation">
+      <a href="#services">Services</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#methode">Méthode</a>
+      <a href="#devis">Devis</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <div class="label">Architecture · Plans de maison · Bamako</div>
+      <h1 style="margin-top:14px">Votre maison, dessinée avant d'être construite.</h1>
+      <p class="lead">District Design Group conçoit des plans modernes adaptés à votre terrain et à votre budget. Vous voyez le projet sur plan avant de poser la première brique.</p>
+      <div class="btns">
+        <a class="btn primary" href="#devis">Demander un devis</a>
+        <a class="btn" href="#realisations">Voir nos réalisations</a>
+      </div>
+    </div>
+    <svg class="plan" viewBox="0 0 420 340" role="img" aria-label="Plan de maison avec cotes, échelle 1 pour 100">
+      <!-- cotes extérieures -->
+      <line class="d" x1="40" y1="26" x2="380" y2="26"/><line class="d" x1="40" y1="20" x2="40" y2="32"/><line class="d" x1="380" y1="20" x2="380" y2="32"/>
+      <text class="dim" x="210" y="18" text-anchor="middle">12,00 m</text>
+      <line class="d" x1="406" y1="50" x2="406" y2="290"/><line class="d" x1="400" y1="50" x2="412" y2="50"/><line class="d" x1="400" y1="290" x2="412" y2="290"/>
+      <text class="dim" x="396" y="176" text-anchor="middle" transform="rotate(-90 396 176)">8,50 m</text>
+      <!-- murs -->
+      <rect class="w" x="40" y="50" width="340" height="240"/>
+      <line class="w" x1="200" y1="50" x2="200" y2="190"/>
+      <line class="w" x1="40" y1="190" x2="290" y2="190"/>
+      <line class="w" x1="290" y1="190" x2="290" y2="290"/>
+      <!-- portes (arcs) -->
+      <path class="t" d="M200 150 A36 36 0 0 1 164 190"/><line class="t" x1="200" y1="150" x2="200" y2="190"/>
+      <path class="t" d="M290 250 A36 36 0 0 0 326 290"/>
+      <!-- fenêtres -->
+      <line class="w" x1="90" y1="50" x2="150" y2="50" style="stroke:var(--accent)"/>
+      <line class="w" x1="250" y1="50" x2="330" y2="50" style="stroke:var(--accent)"/>
+      <line class="w" x1="380" y1="110" x2="380" y2="160" style="stroke:var(--accent)"/>
+      <!-- pièces -->
+      <text class="r" x="120" y="124" text-anchor="middle">SALON</text><text x="120" y="140" text-anchor="middle">5,4 × 3,9</text>
+      <text class="r" x="290" y="124" text-anchor="middle">CHAMBRE 1</text><text x="290" y="140" text-anchor="middle">4,8 × 3,9</text>
+      <text class="r" x="165" y="244" text-anchor="middle">CHAMBRE 2</text><text x="165" y="260" text-anchor="middle">4,8 × 3,2</text>
+      <text class="r" x="335" y="236" text-anchor="middle">SDB</text><text x="335" y="252" text-anchor="middle">2,6 × 3,2</text>
+      <!-- échelle -->
+      <line class="w" x1="40" y1="316" x2="120" y2="316"/><line class="w" x1="40" y1="310" x2="40" y2="322"/><line class="w" x1="120" y1="310" x2="120" y2="322"/>
+      <text x="132" y="320">ÉCHELLE 1:100</text>
+    </svg>
+  </div>
+
+  <section id="services">
+    <div class="sec-head"><span class="label">Ce que nous faisons</span><h2>Services</h2></div>
+    <div class="services">
+      <div class="service"><h3>Plans de maison</h3><p>Plans d'architecte pour villas et maisons familiales : distribution des pièces, façades, plan de masse, dessinés selon la forme et la taille de votre terrain.</p></div>
+      <div class="service"><h3>Conception moderne</h3><p>Volumes contemporains, bonne ventilation et lumière naturelle, pensés pour le climat du Mali et les matériaux disponibles sur place.</p></div>
+      <div class="service"><h3>Suivi de chantier</h3><p>Visites sur le chantier pour vérifier que la construction respecte les plans, les dimensions et le budget prévu.</p></div>
+    </div>
+  </section>
+
+  <section id="realisations">
+    <div class="sec-head"><span class="label">Sur le terrain</span><h2>Réalisations</h2><p class="note" style="margin:0">Photos et chantiers publiés sur le blog de District Design Group.</p></div>
+    <div class="works">
+      <a class="work" href="https://district-archi.blogspot.com/2026/02/voir-en-images-reelles.html"><span class="date">Février 2026</span><strong>Voir en images réelles</strong><span class="go">Lire l'article →</span></a>
+      <a class="work" href="https://district-archi.blogspot.com/2025/12/apercues-des-activites-de-construction.html"><span class="date">Décembre 2025</span><strong>Aperçu des activités de construction</strong><span class="go">Lire l'article →</span></a>
+      <a class="work" href="https://district-archi.blogspot.com/2026/09/conception-architecturale-moderne.html"><span class="date">Septembre 2026</span><strong>Conception architecturale moderne</strong><span class="go">Lire l'article →</span></a>
+      <a class="work" href="https://district-archi.blogspot.com/"><span class="date">Toutes les publications</span><strong>Le blog District Design Group</strong><span class="go">Ouvrir le blog →</span></a>
+    </div>
+  </section>
+
+  <section id="methode">
+    <div class="sec-head"><span class="label">Du terrain à la maison</span><h2>Comment ça se passe</h2></div>
+    <ol class="steps">
+      <li><h3>Votre demande</h3><p>Vous décrivez votre terrain, vos besoins et votre budget.</p></li>
+      <li><h3>Devis</h3><p>Vous recevez un prix clair avant de vous engager.</p></li>
+      <li><h3>Plans</h3><p>Nous dessinons, vous corrigez, jusqu'à ce que le plan vous convienne.</p></li>
+      <li><h3>Construction</h3><p>Plans prêts pour votre maçon, avec suivi de chantier si vous le souhaitez.</p></li>
+    </ol>
+  </section>
+
+  <section id="devis">
+    <div class="sec-head"><span class="label">Premier contact</span><h2>Demander un devis</h2></div>
+    <div class="quote-box">
+      <div>
+        <p style="margin:0 0 10px">Remplissez le formulaire : il prépare votre message, que vous envoyez ensuite à District Design Group sur WhatsApp. La réponse est gratuite et sans engagement.</p>
+        <ul class="contact-list">
+          <li id="c-wa" hidden><span class="label">WhatsApp</span><span id="c-wa-v"></span></li>
+          <li id="c-mail" hidden><span class="label">E-mail</span><span id="c-mail-v"></span></li>
+          <li><span class="label">Blog</span><a href="https://district-archi.blogspot.com/">district-archi.blogspot.com</a></li>
+        </ul>
+      </div>
+      <form id="qf" novalidate>
+        <div class="field"><label for="f-nom">Votre nom</label><input id="f-nom" autocomplete="name"></div>
+        <div class="row2">
+          <div class="field"><label for="f-type">Projet</label>
+            <select id="f-type"><option>Plan de maison</option><option>Villa moderne</option><option>Rénovation</option><option>Suivi de chantier</option><option>Autre</option></select></div>
+          <div class="field"><label for="f-ville">Ville</label><input id="f-ville" placeholder="Bamako"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="f-l">Terrain, largeur (m)</label><input id="f-l" inputmode="decimal" placeholder="15"></div>
+          <div class="field"><label for="f-p">Terrain, longueur (m)</label><input id="f-p" inputmode="decimal" placeholder="20"></div>
+        </div>
+        <div class="field"><label for="f-msg">Votre besoin</label><textarea id="f-msg" placeholder="Nombre de chambres, budget, délai…"></textarea></div>
+        <button class="btn primary" type="submit">Préparer mon message</button>
+        <div class="out" id="out">
+          <pre id="msg"></pre>
+          <div class="btns">
+            <a class="btn primary" id="wa" target="_blank" rel="noopener" hidden>Envoyer sur WhatsApp</a>
+            <button class="btn" type="button" id="copy">Copier le message</button>
+          </div>
+          <span class="note" id="status" role="status"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <span>© <span id="yr">2026</span> District Design Group</span>
+    <span>Bamako, Mali</span>
+  </footer>
+</div>
+
+<script>
+  // À renseigner : numéro WhatsApp au format international sans + ni espaces (ex. 22370000000), et e-mail public.
+  var WHATSAPP = "22391204339";
+  var EMAIL = "mouss.kante2016@gmail.com";
+
+  if (WHATSAPP) { document.getElementById("c-wa").hidden = false; document.getElementById("c-wa-v").textContent = "+" + WHATSAPP; }
+  if (EMAIL) { document.getElementById("c-mail").hidden = false; document.getElementById("c-mail-v").textContent = EMAIL; }
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  var form = document.getElementById("qf");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = function (id) { return document.getElementById(id).value.trim(); };
+    var lines = ["Bonjour District Design Group, je souhaite un devis."];
+    if (v("f-nom")) lines.push("Nom : " + v("f-nom"));
+    lines.push("Projet : " + v("f-type"));
+    if (v("f-ville")) lines.push("Ville : " + v("f-ville"));
+    if (v("f-l") && v("f-p")) lines.push("Terrain : " + v("f-l") + " m × " + v("f-p") + " m");
+    if (v("f-msg")) lines.push("Besoin : " + v("f-msg"));
+    var text = lines.join("\n");
+    document.getElementById("msg").textContent = text;
+    document.getElementById("out").classList.add("show");
+    var wa = document.getElementById("wa");
+    if (WHATSAPP) { wa.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(text); wa.hidden = false; }
+    document.getElementById("status").textContent = WHATSAPP ? "" : "Copiez ce message et envoyez-le à District Design Group.";
+  });
+
+  document.getElementById("copy").addEventListener("click", function () {
+    var text = document.getElementById("msg").textContent;
+    var s = document.getElementById("status");
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById("msg"));
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      s.textContent = "Texte sélectionné : copiez-le avec votre téléphone.";
+    };
+    try {
+      navigator.clipboard.writeText(text).then(function () { s.textContent = "Message copié."; }, fallback);
+    } catch (err) { fallback(); }
+  });
+</script>
+
+</body>
+</html>
